@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://unpkg.com/vue@3.4.21/dist/vue.global.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    // V-ON @
+    // V-BIND :
+    // V-MODEL (two way binding)
+    // V-ONCE (one time binding) -- not reactive
+    // V-HTML (to render html tags)
+    // .prevent modifier to prevent default behaviour
+    // .enter modifier to listen to enter key
+    // WATCHER (to watch data changes)
+    // COMPUTED PROPERTIES (to compute data based on other data)
+    // METHODS (to define functions)
+    <header>
+      <h1>Vue Course Goals</h1>
+    </header>
+    <section id="user-goal">
+      <h2>My Course Goal</h2>
+      <p>{{ outputGoal()}}</p>
+      <!-- <p v-html="outputGoal()"></p> -->
+
+      <p>Learn more <a v-bind:href="vueLink">about Vue.</a></p>
+    </section>
+    <section id="events">
+      <h2>Events in Action</h2>
+      <button @click="add(5)">Add 5</button>
+      <button @click="sub(5)">Subtract 5</button>
+      <p v-once>Starting Counter: {{ counter }}</p>
+      <p>Result: {{ counter }}</p>
+
+
+      <!-- <input type="text" placeholder="Enter the Name" v-on:input="setName($event, 'Mr')"> -->
+      <!-- <input type="text" v-bind:value="name" placeholder="Enter the Name" v-on:input="setName" 
+      v-on:keyup.enter="confirmInput"> -->
+      <input type="text" v-model="name" placeholder="Enter the Name"  
+      v-on:keyup.enter="confirmInput">
+
+      <button @click="resetInput">Reset Input</button>
+
+      <p>Your Name : {{fullname}}</p>
+
+
+      <!-- <form v-on:submit="submitForm"> -->
+      <form v-on:submit.prevent="submitForm">
+        <input type="text">
+        <button>Sign Up</button>
+      </form>
+    </section>
+  </body>
+</html>
