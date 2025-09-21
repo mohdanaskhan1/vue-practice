@@ -13,7 +13,7 @@
     <script src="./app.js" defer></script>
   </head>
   <body>
-    // V-ON @
+    <!-- // V-ON @
     // V-BIND :
     // V-MODEL (two way binding)
     // V-ONCE (one time binding) -- not reactive
@@ -22,7 +22,7 @@
     // .enter modifier to listen to enter key
     // WATCHER (to watch data changes)
     // COMPUTED PROPERTIES (to compute data based on other data)
-    // METHODS (to define functions)
+    // METHODS (to define functions) -->
     <header>
       <h1>Vue Course Goals</h1>
     </header>
@@ -57,6 +57,43 @@
         <input type="text">
         <button>Sign Up</button>
       </form>
+
+      <br>
+      <!-- <h2>How Vue Works</h2>
+      <input type="text" @input="saveInput" v-model="currentUserInput">
+      <button @click="setText">Set Text</button>
+      <p> {{ message }}</p> -->
+
+
+      <h2>How Vue Works</h2>
+      <input type="text" ref="userText">
+      <button @click="setText">Set Text</button>
+      <p> {{ message }}</p>
+
+
+    </section>
+
+
+    <header>
+      <h1>Vue Dynamic Styling</h1>
+    </header>
+    <section id="styling">
+      <!-- <div 
+      class="demo"
+      :class="boxAClasses"
+      @click="boxSelected('A')"></div> -->
+      <div 
+      :class="['demo', boxAClasses]"
+      @click="boxSelected('A')"></div>
+
+      <div 
+      class="demo"
+      :class="boxBClasses"
+      @click="boxSelected('B')"></div>
+      <div 
+      class="demo"
+      :class="boxCClasses"
+      @click="boxSelected('C')"></div>
     </section>
   </body>
 </html>

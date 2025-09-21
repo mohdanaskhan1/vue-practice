@@ -33,7 +33,11 @@ const app2 = Vue.createApp({
             counter : 10 ,
             name : '',
             confirmedName : '',
-            fullname : ''
+            fullname : '',
+
+
+            currentUserInput:'',
+            message:'Vue is great!'
         }
     },
     watch:{
@@ -87,10 +91,57 @@ const app2 = Vue.createApp({
         },
         sub(num){
             this.counter=this.counter-num;
+        },
+
+
+
+        // saveInput(event){
+        //     this.currentUserInput=event.target.value;
+        // },
+        setText(){
+            // this.message = this.currentUserInput;
+            this.message = this.$refs.userText.value;
+            this.$refs.userText.value='';
         }
 
     }
 });
 app2.mount('#events');
 
+
+
+const app3 = Vue.createApp({
+    data(){
+        return{
+            boxASelected: false,
+            boxBSelected: false,
+            boxCSelected: false
+        }
+    },
+    computed:{
+        boxAClasses() {
+            return {active : this.boxASelected};
+        },
+        boxBClasses() {
+            return {active : this.boxBSelected};
+        },
+        boxCClasses() {
+            return {active : this.boxCSelected};
+        }
+    },
+    methods:{
+        boxSelected(box){
+            if (box === 'A'){
+                this.boxASelected=!this.boxASelected;
+            } 
+            else if(box === 'B'){
+                this.boxBSelected=!this.boxBSelected
+            } 
+            else if(box === 'C'){
+                this.boxCSelected=!this.boxCSelected
+            }
+        }
+    }
+});
+app3.mount('#styling');
 
